@@ -50,6 +50,7 @@ interface Response {
 
 const Home = () => {
     const [forecasts, setForecasts] = useState<Response>()
+    const [location, setLocation] = useState('')
     console.log(import.meta.env.VITE_API_KEY)
     useEffect(
         () => {
@@ -65,7 +66,7 @@ const Home = () => {
                               },
                               params:{
                                   key: import.meta.env.VITE_API_KEY,
-                                  q: `${position.coords.latitude}, ${position.coords.longitude}` ,
+                                  q: location || `${position.coords.latitude}, ${position.coords.longitude}` ,
                                   days: 4,
                               }
                       })
@@ -79,7 +80,7 @@ const Home = () => {
               }
               }
             getWeatherForecast()
-        }, []
+        }, [location]
     )
 
     const futureForecasts = forecasts?.data.forecast.forecastday
@@ -94,7 +95,7 @@ const Home = () => {
 
   return (
     <main className='p-8 min-h-screen w-full bg-gradient-to-tr from-[#00B4FF] to-[#7A5CC1] text-gray-700 md:flex md:flex-col md:justify-around'>
-        <SearchBar />
+        <SearchBar location={location} setLocation={setLocation}/>
         <section className="mt-10 grid grid-cols-1 sm:flex justify-around items-center lg:px-6">
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2">
