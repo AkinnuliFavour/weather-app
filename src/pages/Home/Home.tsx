@@ -41,24 +41,16 @@ interface Response {
   }
 }
 
-// interface Position {
-//     coords:{
-//       latitude: number,
-//       longitude: number
-//     }
-//   }
-
 const Home = () => {
     const [forecasts, setForecasts] = useState<Response>()
     const [location, setLocation] = useState('')
-    console.log(import.meta.env.VITE_API_KEY)
+
     useEffect(
         () => {
             const getWeatherForecast = async() => {
               if(navigator.geolocation){
                 navigator.geolocation.getCurrentPosition(
                     async(position: GeolocationPosition) => {
-                        console.log(position)
                         try {
                           const weatherForecast: Response = await api.get('forecast.json', {
                               headers:{
@@ -70,7 +62,6 @@ const Home = () => {
                                   days: 4,
                               }
                       })
-                      console.log(weatherForecast)
                       setForecasts(weatherForecast)
                       } catch (error) {
                           if(error instanceof Error) throw new Error(`Error: ${error.message}`)
