@@ -5,13 +5,13 @@ const SearchBar = ({location, setLocation}: {location: string, setLocation: Reac
         console.log(`User Pressed ${e.key}`)
     }
     return (
-    <form action="" className="mt-10 flex justify-center items-center gap-4">
+      <form action="" className="mt-10 flex justify-center items-center gap-4 relative">
       <input
         type="search"
         name=""
         id=""
         placeholder="Location Search"
-        className="p-2 w-full lg:w-1/2 outline-none rounded-3xl shadow-inner bg-[#33C3FF]"
+        className="p-2 w-full lg:w-1/2 outline-none rounded-3xl shadow-inner bg-[#33C3FF] pl-10"
         onKeyDown={handleKeyDown}
         value={location}
         onChange={(e) => setLocation(e.target.value)}
@@ -19,7 +19,7 @@ const SearchBar = ({location, setLocation}: {location: string, setLocation: Reac
 
       <FaSearch
         onClick={() => console.log("Clicked")}
-        className="absolute top-1/2 transform -translate-y-1/2 right-2 h-5 w-5 text-blue-500 cursor-pointer"
+        className="absolute top-1/2 transform -translate-y-1/2 left-2 h-5 w-5 text-blue-500 cursor-pointer"
       />
     </form>
     )
