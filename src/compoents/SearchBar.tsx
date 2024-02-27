@@ -11,7 +11,7 @@ const SearchBar = ({location, setLocation}: {location: string, setLocation: Reac
         name=""
         id=""
         placeholder="Location Search"
-        className="p-2 w-full lg:w-1/2 outline-none rounded-3xl shadow-inner bg-[#33C3FF] pl-10"
+        className="p-2 w-full lg:w-1/2 outline-none rounded-3xl shadow-inner bg-[#33C3FF] pl-10 text-gray-700 font-bold"
         onKeyDown={handleKeyDown}
         value={location}
         onChange={(e) => setLocation(e.target.value)}
