@@ -1,10 +1,10 @@
 import api from '../../api/forecast'
 import {useEffect, useState} from 'react'
 
-import SearchBar from "../../compoents/SearchBar"
+import SearchBar from "../../components/SearchBar"
 import { FaLocationDot, FaTemperatureHigh } from 'react-icons/fa6'
-import TemperatureCard from "../../compoents/TemperatureCard"
-import ErrorMessage from '../../compoents/ErrorMessage'
+import TemperatureCard from "../../components/TemperatureCard"
+import ErrorMessage from '../../components/ErrorMessage'
 import { dayValues, monthValues } from '../../constants/constants'
 
 interface Response {
